@@ -1,10 +1,14 @@
 
-pragma solidity ^0.4.17;
+pragma solidity ^0.5.0;
 
 contract SimpleStorage {
-  mapping(address => uint256) public favoriteNumbers;
+    mapping(address => uint256) public favoriteNumbers;
 
-  function setFavorite(uint x) public {
-    favoriteNumbers[msg.sender] = x;
-  }
+    function setFavorite(uint x) public {
+        favoriteNumbers[msg.sender] = x;
+    }
+
+    function getFavorite() public view returns (uint256) {
+        return favoriteNumbers[msg.sender];
+    }
 }
